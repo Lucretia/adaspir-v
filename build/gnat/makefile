@@ -23,8 +23,13 @@ all: spirv.gpr
 spirv.gpr:
 	$(GPRBUILD) -p -XSPIRV_MODE=$(SPIRV_MODE) -Pspirv.gpr
 
-# Add clean lib targets here
+.PHONY: install
 
+install: all
+	$(GPRINSTALL) --prefix=$(DESTDIR)/adaspir-v --build-name=$(SPIRV_MODE) -p \
+		-XSPIRV_MODE=$(SPIRV_MODE) -Pspirv.gpr
+
+# Add clean lib targets here
 .PHONY: clean
 
 clean:
@@ -36,4 +41,3 @@ clean:
 
 todo:
 	grep -riw --color TODO $(SRC)
-
