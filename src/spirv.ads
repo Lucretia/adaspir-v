@@ -24,19 +24,17 @@
 --  (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE OF THIS
 --  SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 ------------------------------------------------------------------------------------------------------------------------
-with Interfaces.C; use Interfaces.C;
+with Interfaces.C;
 
 package SPIRV is
 
-   --  unsupported macro: _VERSION 10000
-   --  unsupported macro: _REVISION 2
-   subtype Id is unsigned;  -- spirv.h:51
+   subtype Id is Interfaces.C.unsigned;
 
-   Magic_Number     : unsigned := 16#0723_0203#;
-   Version          : unsigned := 16#0001_0000#;
-   Revision         : unsigned := 2;
-   Op_Code_Mask     : unsigned := 16#0000_ffff#;
-   Word_Count_Shift : unsigned := 16;
+   Magic_Number     : Interfaces.C.unsigned := 16#0723_0203#;
+   Version          : Interfaces.C.unsigned := 16#0001_0000#;
+   Revision         : Interfaces.C.unsigned := 2;
+   Op_Code_Mask     : Interfaces.C.unsigned := 16#0000_ffff#;
+   Word_Count_Shift : Interfaces.C.unsigned := 16;
 
    type Source_Language is
      (Unknown,
@@ -269,7 +267,7 @@ package SPIRV is
       MinLodShift) with
      Convention => C;
 
-   subtype Image_Operands_Mask is unsigned;
+   subtype Image_Operands_Mask is Interfaces.C.unsigned;
 
    Image_Operands_Mask_None          : constant Image_Operands_Mask := 0;
    Image_Operands_Bias_Mask          : constant Image_Operands_Mask := 1;
@@ -289,7 +287,7 @@ package SPIRV is
       Fast_Shift) with
      Convention => C;
 
-   subtype FP_Fast_Math_Mode_Mask is unsigned;
+   subtype FP_Fast_Math_Mode_Mask is Interfaces.C.unsigned;
 
    FP_Fast_Math_Mode_Mask_None        : constant FP_Fast_Math_Mode_Mask := 0;
    FP_Fast_Math_Mode_Not_NaN_Mask     : constant FP_Fast_Math_Mode_Mask := 1;
@@ -534,7 +532,7 @@ package SPIRV is
       Constant_Shift) with
      Convention => C;
 
-   subtype Function_Control_Mask is unsigned;
+   subtype Function_Control_Mask is Interfaces.C.unsigned;
 
    Function_Control_Mask_None        : constant Function_Control_Mask := 0;
    Function_Control_Inline_Mask      : constant Function_Control_Mask := 1;
@@ -567,7 +565,7 @@ package SPIRV is
       Memory_Semantics_Atomic_Counter_Memory_Shift   => 10,
       Memory_Semantics_Image_Memory_Shift            => 11);
 
-   subtype Memory_Semantics_Mask is unsigned;
+   subtype Memory_Semantics_Mask is Interfaces.C.unsigned;
 
    Memory_Semantics_Mask_None                    : constant Memory_Semantics_Mask := 0;
    Memory_Semantics_Acquire_Mask                 : constant Memory_Semantics_Mask := 2;
@@ -587,7 +585,7 @@ package SPIRV is
       Nontemporal_Shift) with
      Convention => C;
 
-   subtype Memory_Access_Mask is unsigned;
+   subtype Memory_Access_Mask is Interfaces.C.unsigned;
 
    Memory_Access_Mask_None        : constant Memory_Access_Mask := 0;
    Memory_Access_Volatile_Mask    : constant Memory_Access_Mask := 1;
