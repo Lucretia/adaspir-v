@@ -3,12 +3,16 @@
 This is an Ada 2012 library that implements the enumerations for the [SPIR-V](https://www.khronos.org/registry/spir-v)
 intermediate language by Khronos. This library can be used to build tools that manipulate SPIR-V in Ada 2012.
 
+This has not been tested out yet, so any comments, suggestions, bugs, please add an issue.
+
 # Building
 
 ## GNAT
 
+I have built this using the following commands on Linux.
+
 $ cd build/gnat
-$ make
+$ SPIRV_MODE=debug make
 
 # Dependencies
 
