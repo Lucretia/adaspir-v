@@ -11,8 +11,10 @@ This has not been tested out yet, so any comments, suggestions, bugs, please add
 
 I have built this using the following commands on Linux.
 
+```
 $ cd build/gnat
 $ SPIRV_MODE=debug make
+```
 
 # Dependencies
 
